@@ -9,8 +9,8 @@
     <SolutionConfiguration>Debug|x64</SolutionConfiguration>
     <PackageArchitecture>x64</PackageArchitecture>
     <PackageIdentityName>01efa263-3d1f-48fa-a864-2b6a432d1d9f</PackageIdentityName>
-    <IntermediateOutputPath>C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\obj\x64\Debug\</IntermediateOutputPath>
-    <RegisteredManifestChecksum>CE75058D80F849402E95977973D3F8B0CA488775C72D244E51D6B732507767F0</RegisteredManifestChecksum>
+    <IntermediateOutputPath>C:\Users\prady\Documents\GitHub\MarkoKinect\Marko\obj\x64\Debug\</IntermediateOutputPath>
+    <RegisteredManifestChecksum>46225AB4EBAC28CF12604962BF548ACE0BF635E7F856EF9CF806AB3905036E9A</RegisteredManifestChecksum>
     <RegisteredPackageMoniker>01efa263-3d1f-48fa-a864-2b6a432d1d9f_1.0.0.0_x64__m81azd2zhvbfp</RegisteredPackageMoniker>
     <RegisteredUserModeAppID>01efa263-3d1f-48fa-a864-2b6a432d1d9f_m81azd2zhvbfp!App</RegisteredUserModeAppID>
     <RegisteredPackageID>01efa263-3d1f-48fa-a864-2b6a432d1d9f</RegisteredPackageID>
@@ -19,68 +19,68 @@
     <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
   </PropertyGroup>
   <ItemGroup>
-    <AppXManifest Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\bin\x64\Debug\AppxManifest.xml">
+    <AppXManifest Include="C:\Users\prady\Documents\GitHub\MarkoKinect\Marko\bin\x64\Debug\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2015-10-24T21:45:26.348</Modified>
+      <Modified>2015-10-24T21:54:14.025</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
-    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\bin\x64\Debug\Marko.exe">
+    <AppxPackagedFile Include="C:\Users\prady\Documents\GitHub\MarkoKinect\Marko\bin\x64\Debug\Marko.exe">
       <PackagePath>Marko.exe</PackagePath>
-      <Modified>2015-10-24T21:45:25.226</Modified>
+      <Modified>2015-10-24T21:54:13.362</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\packages\Microsoft.ApplicationInsights.1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
+    <AppxPackagedFile Include="C:\Users\prady\Documents\GitHub\MarkoKinect\packages\Microsoft.ApplicationInsights.1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
       <Modified>2015-10-24T21:42:24.671</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\packages\Microsoft.ApplicationInsights.WindowsApps.1.0.0\lib\win81\Microsoft.ApplicationInsights.Extensibility.Windows.dll">
+    <AppxPackagedFile Include="C:\Users\prady\Documents\GitHub\MarkoKinect\packages\Microsoft.ApplicationInsights.WindowsApps.1.0.0\lib\win81\Microsoft.ApplicationInsights.Extensibility.Windows.dll">
       <PackagePath>Microsoft.ApplicationInsights.Extensibility.Windows.dll</PackagePath>
       <Modified>2015-10-24T21:42:25.919</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\packages\Microsoft.ApplicationInsights.PersistenceChannel.1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.PersistenceChannel.dll">
+    <AppxPackagedFile Include="C:\Users\prady\Documents\GitHub\MarkoKinect\packages\Microsoft.ApplicationInsights.PersistenceChannel.1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.PersistenceChannel.dll">
       <PackagePath>Microsoft.ApplicationInsights.PersistenceChannel.dll</PackagePath>
       <Modified>2015-10-24T21:42:25.471</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\ApplicationInsights.config">
+    <AppxPackagedFile Include="C:\Users\prady\Documents\GitHub\MarkoKinect\Marko\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
       <Modified>2015-10-24T21:42:41.324</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\Assets\Logo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\prady\Documents\GitHub\MarkoKinect\Marko\Assets\Logo.scale-100.png">
       <PackagePath>Assets\Logo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-07-07T05:05:20.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\Assets\SmallLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\prady\Documents\GitHub\MarkoKinect\Marko\Assets\SmallLogo.scale-100.png">
       <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-07-07T05:05:20.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\Assets\SplashScreen.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\prady\Documents\GitHub\MarkoKinect\Marko\Assets\SplashScreen.scale-100.png">
       <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-07-07T05:05:20.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\Assets\StoreLogo.scale-100.png">
+    <AppxPackagedFile Include="C:\Users\prady\Documents\GitHub\MarkoKinect\Marko\Assets\StoreLogo.scale-100.png">
       <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-07-07T05:05:20.000</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\bin\x64\Debug\Marko.xr.xml">
+    <AppxPackagedFile Include="C:\Users\prady\Documents\GitHub\MarkoKinect\Marko\bin\x64\Debug\Marko.xr.xml">
       <PackagePath>Marko.xr.xml</PackagePath>
       <Modified>2015-10-24T21:45:24.832</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\bin\x64\Debug\App.xbf">
+    <AppxPackagedFile Include="C:\Users\prady\Documents\GitHub\MarkoKinect\Marko\bin\x64\Debug\App.xbf">
       <PackagePath>App.xbf</PackagePath>
       <Modified>2015-10-24T21:45:24.916</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\bin\x64\Debug\MainPage.xbf">
+    <AppxPackagedFile Include="C:\Users\prady\Documents\GitHub\MarkoKinect\Marko\bin\x64\Debug\MainPage.xbf">
       <PackagePath>MainPage.xbf</PackagePath>
       <Modified>2015-10-24T21:45:24.918</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\bin\x64\Debug\resources.pri">
+    <AppxPackagedFile Include="C:\Users\prady\Documents\GitHub\MarkoKinect\Marko\bin\x64\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2015-10-24T21:45:26.179</Modified>
+      <Modified>2015-10-24T21:54:13.918</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

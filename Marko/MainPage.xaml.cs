@@ -12,6 +12,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using WindowsPreview.Kinect;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -22,8 +23,11 @@ namespace Marko
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private KinectSensor kinectSensor = null;
         public MainPage()
         {
+            this.kinectSensor = KinectSensor.GetDefault();
+            this.kinectSensor.Open();
             this.InitializeComponent();
         }
     }

@@ -29,6 +29,8 @@
   </Applications>
   <Capabilities>
     <Capability Name="internetClient" />
+    <DeviceCapability Name="microphone" />
+    <DeviceCapability Name="webcam" />
   </Capabilities>
   <Dependencies>
     <PackageDependency Name="Microsoft.VCLibs.120.00.Debug" MinVersion="12.0.21005.1" />
