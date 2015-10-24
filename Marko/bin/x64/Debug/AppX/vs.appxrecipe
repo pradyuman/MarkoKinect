@@ -1,0 +1,131 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>RAKUZAN</Machine>
+    <WindowsUser>prady</WindowsUser>
+    <TargetPlatformIdentifier>Windows</TargetPlatformIdentifier>
+    <TargetOsVersion>6.3</TargetOsVersion>
+    <TargetOsDescription>Windows 8.1</TargetOsDescription>
+    <SolutionConfiguration>Debug|x64</SolutionConfiguration>
+    <PackageArchitecture>x64</PackageArchitecture>
+    <PackageIdentityName>01efa263-3d1f-48fa-a864-2b6a432d1d9f</PackageIdentityName>
+    <IntermediateOutputPath>C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\obj\x64\Debug\</IntermediateOutputPath>
+    <RegisteredManifestChecksum>CE75058D80F849402E95977973D3F8B0CA488775C72D244E51D6B732507767F0</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>01efa263-3d1f-48fa-a864-2b6a432d1d9f_1.0.0.0_x64__m81azd2zhvbfp</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>01efa263-3d1f-48fa-a864-2b6a432d1d9f_m81azd2zhvbfp!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>01efa263-3d1f-48fa-a864-2b6a432d1d9f</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=prady</RegisteredPackagePublisher>
+    <RegisteredVersion>1.0.0.0</RegisteredVersion>
+    <JitOptimizationSuppressed>True</JitOptimizationSuppressed>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\bin\x64\Debug\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-10-24T21:45:26.348</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\bin\x64\Debug\Marko.exe">
+      <PackagePath>Marko.exe</PackagePath>
+      <Modified>2015-10-24T21:45:25.226</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\packages\Microsoft.ApplicationInsights.1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
+      <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
+      <Modified>2015-10-24T21:42:24.671</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\packages\Microsoft.ApplicationInsights.WindowsApps.1.0.0\lib\win81\Microsoft.ApplicationInsights.Extensibility.Windows.dll">
+      <PackagePath>Microsoft.ApplicationInsights.Extensibility.Windows.dll</PackagePath>
+      <Modified>2015-10-24T21:42:25.919</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\packages\Microsoft.ApplicationInsights.PersistenceChannel.1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.PersistenceChannel.dll">
+      <PackagePath>Microsoft.ApplicationInsights.PersistenceChannel.dll</PackagePath>
+      <Modified>2015-10-24T21:42:25.471</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\ApplicationInsights.config">
+      <PackagePath>ApplicationInsights.config</PackagePath>
+      <Modified>2015-10-24T21:42:41.324</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\Assets\Logo.scale-100.png">
+      <PackagePath>Assets\Logo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-07-07T05:05:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\Assets\SmallLogo.scale-100.png">
+      <PackagePath>Assets\SmallLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-07-07T05:05:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\Assets\SplashScreen.scale-100.png">
+      <PackagePath>Assets\SplashScreen.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-07-07T05:05:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\Assets\StoreLogo.scale-100.png">
+      <PackagePath>Assets\StoreLogo.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2015-07-07T05:05:20.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\bin\x64\Debug\Marko.xr.xml">
+      <PackagePath>Marko.xr.xml</PackagePath>
+      <Modified>2015-10-24T21:45:24.832</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\bin\x64\Debug\App.xbf">
+      <PackagePath>App.xbf</PackagePath>
+      <Modified>2015-10-24T21:45:24.916</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\bin\x64\Debug\MainPage.xbf">
+      <PackagePath>MainPage.xbf</PackagePath>
+      <Modified>2015-10-24T21:45:24.918</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\prady\Documents\Visual Studio 2015\Projects\Marko\Marko\bin\x64\Debug\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2015-10-24T21:45:26.179</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\">
+      <Name>Microsoft.VCLibs.120.00.Debug</Name>
+      <Version>12.0.21005.1</Version>
+      <Architecture>ARM</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.120.00.Debug, MinVersion = 12.0.21005.1</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\.\AppX\Debug\ARM\Microsoft.VCLibs.ARM.Debug.12.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\">
+      <Name>Microsoft.VCLibs.120.00.Debug</Name>
+      <Version>12.0.21005.1</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.120.00.Debug, MinVersion = 12.0.21005.1</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\.\AppX\Debug\x64\Microsoft.VCLibs.x64.Debug.12.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\">
+      <Name>Microsoft.VCLibs.120.00.Debug</Name>
+      <Version>12.0.21005.1</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.120.00.Debug, MinVersion = 12.0.21005.1</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\Microsoft.VCLibs\12.0\.\AppX\Debug\x86\Microsoft.VCLibs.x86.Debug.12.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\WindowsPreview.Kinect\2.0\">
+      <Name>Microsoft.WindowsPreview.Kinect.8.1</Name>
+      <Version>2.0.1410.19000</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.WindowsPreview.Kinect.8.1, MinVersion = 2.0.1410.19000</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\WindowsPreview.Kinect\2.0\.\AppX\Debug\x64\WindowsPreview.Kinect_2.0_x64.appx</AppxLocation>
+      <MoreInfo>http://www.kinectforwindows.com</MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\WindowsPreview.Kinect\2.0\">
+      <Name>Microsoft.WindowsPreview.Kinect.8.1</Name>
+      <Version>2.0.1410.19000</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.WindowsPreview.Kinect.8.1, MinVersion = 2.0.1410.19000</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows\v8.1\ExtensionSDKs\WindowsPreview.Kinect\2.0\.\AppX\Debug\x86\WindowsPreview.Kinect_2.0_Win32.appx</AppxLocation>
+      <MoreInfo>http://www.kinectforwindows.com</MoreInfo>
+    </ResolvedSDKReference>
+  </ItemGroup>
+</Project>
