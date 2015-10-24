@@ -1,7 +1,0 @@
-<XamlCompilerSaveState>
-  <ReferenceAssemblyList>
-    <ReferenceAssembly PathName="c:\users\prady\documents\visual studio 2015\projects\marko\packages\microsoft.applicationinsights.1.0.0\lib\portable-win81+wpa81\microsoft.applicationinsights.dll" HashGuid="e45dab0f-2190-2cce-6391-85c4e409657c" />
-    <ReferenceAssembly PathName="c:\users\prady\documents\visual studio 2015\projects\marko\packages\microsoft.applicationinsights.windowsapps.1.0.0\lib\win81\microsoft.applicationinsights.extensibility.windows.dll" HashGuid="0cfd8f3d-feff-7167-8f6d-52f443177ca5" />
-    <ReferenceAssembly PathName="c:\users\prady\documents\visual studio 2015\projects\marko\packages\microsoft.applicationinsights.persistencechannel.1.0.0\lib\portable-win81+wpa81\microsoft.applicationinsights.persistencechannel.dll" HashGuid="36d4bf96-0e5e-56a9-1ee8-11c7d3fb4068" />
-  </ReferenceAssemblyList>
-</XamlCompilerSaveState>

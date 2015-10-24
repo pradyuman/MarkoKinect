@@ -1,1 +1,0 @@
-C:\Users\prady\Documents\GitHub\MarkoKinect\Marko\Marko.csproj;x64
