@@ -9,10 +9,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Threading;
 using recog = System.Speech.Recognition;
 using synth = System.Speech.Synthesis;
-
-using System.Threading;
 using System.Net;
-using System.Runtime.Serialization.Json;
 
 using Microsoft.Kinect;
 using Microsoft.Kinect.Face;
@@ -36,6 +33,20 @@ namespace Marko
         private IRecognitionProcessor activeProcessor;
         private KinectSensor kinectSensor;
         private MainWindowViewModel viewModel = new MainWindowViewModel();
+        private bool check_ini = false;
+
+        private string[] dictionary = new string[] {
+                "What should I wear",
+                "different shirt",
+                "different pants",
+                "different shorts",
+                "different shoes",
+                "thanks",
+                "fuck you",
+                "cool", "warm", "hot", "cold",
+                "Pick again",
+                "New outfit"
+            };
 
         /// <summary>
         /// Initializes a new instance of the MainWindow class
@@ -153,7 +164,16 @@ namespace Marko
                         }
 
                         this.viewModel.ReadyForTraining = faceOutlineColor == Color.Green;
-
+                        ////Output for face recognition
+                        if (!check_ini)
+                        {
+                            check_ini = true;
+                            output_data output = new output_data();
+                            output.query = "_";
+                            output.uid = "pradyumanvig@outlook.com";
+                            output.reset = "true";
+                            SendSpeechRequest(output);
+                        }
                         g.DrawPath(new Pen(faceOutlineColor, 5), face.TrackingResult.GetFacePath());
 
                         if (!string.IsNullOrEmpty(face.Key))
@@ -163,7 +183,6 @@ namespace Marko
                             // Write the key on the image...
                             g.DrawString(face.Key + ": " + score, new Font("Arial", 100), Brushes.Red, new System.Drawing.Point(rect.Left, rect.Top - 25));
 
-                            //timeout(SpeechToText, 10000);
                             SpeechToText();
 
                         }
@@ -212,61 +231,15 @@ namespace Marko
             GC.Collect();
         }
 
-        static void timeout(Action action, int timeoutMilliseconds)
-        {
-            Thread threadToKill = null;
-            Action wrappedAction = () =>
-            {
-                threadToKill = Thread.CurrentThread;
-                action();
-            };
-
-            IAsyncResult result = wrappedAction.BeginInvoke(null, null);
-            if (result.AsyncWaitHandle.WaitOne(timeoutMilliseconds))
-            {
-                wrappedAction.EndInvoke(result);
-            }
-            else
-            {
-                threadToKill.Abort();
-                //throw new TimeoutException();
-            }
-        }
-
         private void SendSpeechRequest(output_data data)
         {
-            // Create a request using a URL that can receive a post. 
-            WebRequest request = WebRequest.Create("http://marko-backend.herokuapp.com/handle_voice");
-            // Set the Method property of the request to POST.
-            request.Method = "POST";
-            // Set the ContentType property of the WebRequest.
-            request.ContentType = "application/json; charset=utf-8;";
-            // Set the ContentLength property of the WebRequest.
-            // Get the request stream.
-            Stream dataStream = request.GetRequestStream();
-            //JSON serialization
-            MemoryStream outbound_stream = new MemoryStream();
-            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(output_data));
-            // Write the data to the request stream.
-            ser.WriteObject(dataStream, data);
-            // Close the Stream object.
-            dataStream.Close();
-            // Get the response.
-            WebResponse response = request.GetResponse();
-            // Display the status.
-            Console.WriteLine(((HttpWebResponse)response).StatusDescription);
-            // Get the stream containing content returned by the server.
-            dataStream = response.GetResponseStream();
-            // Open the stream using a StreamReader for easy access.
-            StreamReader reader = new StreamReader(dataStream);
-            // Read the content.
-            string responseFromServer = reader.ReadToEnd();
-            // Display the content.
-            Console.WriteLine(responseFromServer);
-            // Clean up the streams.
-            reader.Close();
-            dataStream.Close();
-            response.Close();
+            WebClient webClient = new WebClient();
+            webClient.QueryString.Add("query", data.query);
+            webClient.QueryString.Add("uid", data.uid);
+            webClient.QueryString.Add("reset", data.reset);
+            string result = webClient.DownloadString("http://marko-backend.herokuapp.com/handle_voice");
+            synth.SpeechSynthesizer synthesizer = new synth.SpeechSynthesizer();
+            synthesizer.SpeakAsync(result);
 
         }
         private void SpeechToText()
@@ -277,7 +250,7 @@ namespace Marko
 
             // Create a simple grammar that recognizes "red", "green", or "blue".
             recog.Choices queries = new recog.Choices();
-            queries.Add(new string[] { "What should I wear tomorrow", "Hi" });
+            queries.Add(dictionary);
 
             // Create a GrammarBuilder object and append the Choices object.
             recog.GrammarBuilder gb = new recog.GrammarBuilder();
@@ -301,17 +274,12 @@ namespace Marko
             synth.SpeechSynthesizer synthesizer = new synth.SpeechSynthesizer();
             output_data output = new output_data();
             output.uid = "pradyumanvig@outlook.com";
-            switch (e.Result.Text)
-            {
-                case "Hi":
-                    synthesizer.SpeakAsync("Hi");
-                    break;
-                case "What should I wear tomorrow":
-                    synthesizer.SpeakAsync("Whatever you want");
-                    output.query = e.Result.Text;
-                    output.reset = true;
-                    SendSpeechRequest(output);
-                    break;
+            Console.WriteLine(e.Result.Text);
+            bool matchingQuery = dictionary.Any(e.Result.Text.Contains);
+            if (matchingQuery) {
+                output.query = e.Result.Text;
+                output.reset = "false";
+                SendSpeechRequest(output);    
             }
         }
 

@@ -17,6 +17,6 @@ namespace Marko
         internal string uid;
 
         [DataMember]
-        internal bool reset;
+        internal string reset;
     }
 }
