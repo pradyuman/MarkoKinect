@@ -74,7 +74,7 @@ namespace Marko
         }
 
         /// <summary>
-        /// Loads the correct procesor based on the selected radio button
+        /// Loads the correct procesor based on the selected radio button (currently only EigenObject)
         /// </summary>
         private void LoadProcessor()
         {
