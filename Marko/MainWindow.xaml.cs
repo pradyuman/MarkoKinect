@@ -11,7 +11,7 @@ using recog = System.Speech.Recognition;
 using synth = System.Speech.Synthesis;
 
 using System.Threading;
-using System.Threading.Tasks;
+using System.Net;
 
 using Microsoft.Kinect;
 using Microsoft.Kinect.Face;
@@ -30,6 +30,8 @@ namespace Marko
         private bool takeTrainingImage = false;
         private KinectFacialRecognitionEngine engine;
 
+        // Create a new SpeechRecognitionEngine instance.
+        recog.SpeechRecognitionEngine sre = new recog.SpeechRecognitionEngine();
         private IRecognitionProcessor activeProcessor;
         private KinectSensor kinectSensor;
         private MainWindowViewModel viewModel = new MainWindowViewModel();
@@ -160,7 +162,9 @@ namespace Marko
                             // Write the key on the image...
                             g.DrawString(face.Key + ": " + score, new Font("Arial", 100), Brushes.Red, new System.Drawing.Point(rect.Left, rect.Top - 25));
 
+                            
                             timeout(SpeechToText, 10000);
+                            //SpeechToText();
 
                         }
 
@@ -232,8 +236,7 @@ namespace Marko
 
         private void SpeechToText()
         {
-            // Create a new SpeechRecognitionEngine instance.
-            recog.SpeechRecognitionEngine sre = new recog.SpeechRecognitionEngine();
+            
             // Configure the input to the recognizer.
             sre.SetInputToDefaultAudioDevice();
 
@@ -254,6 +257,8 @@ namespace Marko
 
             // Start recognition.
             sre.Recognize();
+
+            
         }
 
         void sre_SpeechRecognized(object sender, recog.SpeechRecognizedEventArgs e)
@@ -266,6 +271,7 @@ namespace Marko
                     break;
                 case "What should I wear tomorrow":
                     synthesizer.SpeakAsync("Whatever you want");
+
                     break;
             }
         }
@@ -307,11 +313,6 @@ namespace Marko
                 this.activeProcessor.SetTargetFaces(this.viewModel.TargetFaces);
 
             this.viewModel.TrainName = this.viewModel.TrainName.Replace(this.viewModel.TargetFaces.Count.ToString(), (this.viewModel.TargetFaces.Count + 1).ToString());
-        }
-
-        private void StartSpeechToText()
-        {
-
         }
 
         /// <summary>
