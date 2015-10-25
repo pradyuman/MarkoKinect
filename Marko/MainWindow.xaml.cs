@@ -7,6 +7,11 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
+using recog = System.Speech.Recognition;
+using synth = System.Speech.Synthesis;
+
+using System.Threading;
+using System.Threading.Tasks;
 
 using Microsoft.Kinect;
 using Microsoft.Kinect.Face;
@@ -122,7 +127,7 @@ namespace Marko
                             if (face.TrackingResult.ConstructedFaceModel == null)
                             {
                                 faceOutlineColor = Color.Red;
-                                
+
                                 if (face.TrackingResult.BuilderStatus == FaceModelBuilderCollectionStatus.Complete)
                                     faceOutlineColor = Color.Orange;
                             }
@@ -154,6 +159,9 @@ namespace Marko
 
                             // Write the key on the image...
                             g.DrawString(face.Key + ": " + score, new Font("Arial", 100), Brushes.Red, new System.Drawing.Point(rect.Left, rect.Top - 25));
+
+                            timeout(SpeechToText, 10000);
+
                         }
 
                     }
@@ -187,20 +195,79 @@ namespace Marko
                         this.SerializeBitmapSourceTargetFace(bstf);
 
                         this.takeTrainingImage = false;
-                        
+
                         this.UpdateTargetFaces();
                     }
                 }
 
                 this.viewModel.CurrentVideoFrame = LoadBitmap(processedBitmap);
 
-                SpeechRecognition speech = new SpeechRecognition();
-                speech.StartSpeechToText(this.kinectSensor);
-
             }
-            
+
             // Without an explicit call to GC.Collect here, memory runs out of control :(
             GC.Collect();
+        }
+
+        static void timeout(Action action, int timeoutMilliseconds)
+        {
+            Thread threadToKill = null;
+            Action wrappedAction = () =>
+            {
+                threadToKill = Thread.CurrentThread;
+                action();
+            };
+
+            IAsyncResult result = wrappedAction.BeginInvoke(null, null);
+            if (result.AsyncWaitHandle.WaitOne(timeoutMilliseconds))
+            {
+                wrappedAction.EndInvoke(result);
+            }
+            else
+            {
+                threadToKill.Abort();
+                //throw new TimeoutException();
+            }
+        }
+
+
+        private void SpeechToText()
+        {
+            // Create a new SpeechRecognitionEngine instance.
+            recog.SpeechRecognitionEngine sre = new recog.SpeechRecognitionEngine();
+            // Configure the input to the recognizer.
+            sre.SetInputToDefaultAudioDevice();
+
+            // Create a simple grammar that recognizes "red", "green", or "blue".
+            recog.Choices queries = new recog.Choices();
+            queries.Add(new string[] { "What should I wear tomorrow", "Hi" });
+
+            // Create a GrammarBuilder object and append the Choices object.
+            recog.GrammarBuilder gb = new recog.GrammarBuilder();
+            gb.Append(queries);
+
+            // Create the Grammar instance and load it into the speech recognition engine.
+            recog.Grammar g = new recog.Grammar(gb);
+            sre.LoadGrammar(g);
+
+            // Register a handler for the SpeechRecognized event.
+            sre.SpeechRecognized += new EventHandler<recog.SpeechRecognizedEventArgs>(sre_SpeechRecognized);
+
+            // Start recognition.
+            sre.Recognize();
+        }
+
+        void sre_SpeechRecognized(object sender, recog.SpeechRecognizedEventArgs e)
+        {
+            synth.SpeechSynthesizer synthesizer = new synth.SpeechSynthesizer();
+            switch (e.Result.Text)
+            {
+                case "Hi":
+                    synthesizer.SpeakAsync("Hi");
+                    break;
+                case "What should I wear tomorrow":
+                    synthesizer.SpeakAsync("Whatever you want");
+                    break;
+            }
         }
 
         /// <summary>

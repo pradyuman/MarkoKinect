@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
 using System.Windows;
+
 
 using Microsoft.Kinect;
 using System.Speech.AudioFormat;
@@ -93,9 +97,7 @@ namespace Marko
                 kinectSource = myKinect.AudioSource;
                 //kinectSource.BeamAngleMode = Adaptive;
                 //audioStream = kinectSource.Start();
-                recognizer.SetInputToAudioStream(audioStream, new SpeechAudioFormatInfo(
-                                                      EncodingFormat.Pcm, 16000, 16, 1,
-                                                      32000, 2, null));
+                recognizer.SetInputToDefaultAudioDevice();
                 recognizer.RecognizeAsync(RecognizeMode.Multiple);
             }
             catch
