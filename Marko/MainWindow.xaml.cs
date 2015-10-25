@@ -36,8 +36,7 @@ namespace Marko
         {
             this.DataContext = this.viewModel;
             this.viewModel.TrainName = "Face 1";
-            this.viewModel.ProcessorType = ProcessorTypes.FaceModel;
-            this.viewModel.PropertyChanged += this.ViewModelPropertyChanged;
+            this.viewModel.ProcessorType = ProcessorTypes.PCA;
             this.viewModel.TrainButtonClicked = new ActionCommand(this.Train);
             this.viewModel.TrainNameEnabled = true;
 
@@ -75,27 +74,12 @@ namespace Marko
         }
 
         /// <summary>
-        /// Raised when a property is changed on the view model
-        /// </summary>
-        private void ViewModelPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
-        {
-            switch (e.PropertyName)
-            {
-                case "ProcessorType":
-                    this.LoadProcessor();
-                    break;
-            }
-        }
-
-        /// <summary>
         /// Loads the correct procesor based on the selected radio button
         /// </summary>
         private void LoadProcessor()
         {
-            if (this.viewModel.ProcessorType == ProcessorTypes.FaceModel)
-                this.activeProcessor = new FaceModelRecognitionProcessor();
-            else
-                this.activeProcessor = new EigenObjectRecognitionProcessor();
+
+            this.activeProcessor = new EigenObjectRecognitionProcessor();
 
             this.LoadAllTargetFaces();
             this.UpdateTargetFaces();
