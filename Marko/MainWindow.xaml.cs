@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Drawing;
 using System.IO;
 using System.Linq;
@@ -8,6 +7,7 @@ using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Media.Imaging;
 using System.Windows.Threading;
+
 using Microsoft.Kinect;
 using Microsoft.Kinect.Face;
 using Newtonsoft.Json;
@@ -155,6 +155,7 @@ namespace Marko
                             // Write the key on the image...
                             g.DrawString(face.Key + ": " + score, new Font("Arial", 100), Brushes.Red, new System.Drawing.Point(rect.Left, rect.Top - 25));
                         }
+
                     }
 
                     if (this.takeTrainingImage)
@@ -192,6 +193,10 @@ namespace Marko
                 }
 
                 this.viewModel.CurrentVideoFrame = LoadBitmap(processedBitmap);
+
+                SpeechRecognition speech = new SpeechRecognition();
+                speech.StartSpeechToText(this.kinectSensor);
+
             }
             
             // Without an explicit call to GC.Collect here, memory runs out of control :(
@@ -235,6 +240,11 @@ namespace Marko
                 this.activeProcessor.SetTargetFaces(this.viewModel.TargetFaces);
 
             this.viewModel.TrainName = this.viewModel.TrainName.Replace(this.viewModel.TargetFaces.Count.ToString(), (this.viewModel.TargetFaces.Count + 1).ToString());
+        }
+
+        private void StartSpeechToText()
+        {
+
         }
 
         /// <summary>
@@ -305,6 +315,7 @@ namespace Marko
             /// </summary>
             [JsonProperty]
             public IReadOnlyDictionary<FaceShapeDeformations, float> Deformations { get; set; }
+
         }
     }
 }
