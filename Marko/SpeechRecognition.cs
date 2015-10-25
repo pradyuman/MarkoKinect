@@ -91,12 +91,6 @@ namespace Marko
         {
             try
             {
-              //  myKinect = KinectSensor.KinectSensors[0];
-                //myKinect.Start();
-        
-                kinectSource = myKinect.AudioSource;
-                //kinectSource.BeamAngleMode = Adaptive;
-                //audioStream = kinectSource.Start();
                 recognizer.SetInputToDefaultAudioDevice();
                 recognizer.RecognizeAsync(RecognizeMode.Multiple);
             }

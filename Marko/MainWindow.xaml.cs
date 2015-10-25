@@ -12,6 +12,7 @@ using synth = System.Speech.Synthesis;
 
 using System.Threading;
 using System.Net;
+using System.Runtime.Serialization.Json;
 
 using Microsoft.Kinect;
 using Microsoft.Kinect.Face;
@@ -162,9 +163,8 @@ namespace Marko
                             // Write the key on the image...
                             g.DrawString(face.Key + ": " + score, new Font("Arial", 100), Brushes.Red, new System.Drawing.Point(rect.Left, rect.Top - 25));
 
-                            
-                            timeout(SpeechToText, 10000);
-                            //SpeechToText();
+                            //timeout(SpeechToText, 10000);
+                            SpeechToText();
 
                         }
 
@@ -233,7 +233,42 @@ namespace Marko
             }
         }
 
+        private void SendSpeechRequest(output_data data)
+        {
+            // Create a request using a URL that can receive a post. 
+            WebRequest request = WebRequest.Create("http://marko-backend.herokuapp.com/handle_voice");
+            // Set the Method property of the request to POST.
+            request.Method = "POST";
+            // Set the ContentType property of the WebRequest.
+            request.ContentType = "application/json; charset=utf-8;";
+            // Set the ContentLength property of the WebRequest.
+            // Get the request stream.
+            Stream dataStream = request.GetRequestStream();
+            //JSON serialization
+            MemoryStream outbound_stream = new MemoryStream();
+            DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(output_data));
+            // Write the data to the request stream.
+            ser.WriteObject(dataStream, data);
+            // Close the Stream object.
+            dataStream.Close();
+            // Get the response.
+            WebResponse response = request.GetResponse();
+            // Display the status.
+            Console.WriteLine(((HttpWebResponse)response).StatusDescription);
+            // Get the stream containing content returned by the server.
+            dataStream = response.GetResponseStream();
+            // Open the stream using a StreamReader for easy access.
+            StreamReader reader = new StreamReader(dataStream);
+            // Read the content.
+            string responseFromServer = reader.ReadToEnd();
+            // Display the content.
+            Console.WriteLine(responseFromServer);
+            // Clean up the streams.
+            reader.Close();
+            dataStream.Close();
+            response.Close();
 
+        }
         private void SpeechToText()
         {
             
@@ -264,6 +299,8 @@ namespace Marko
         void sre_SpeechRecognized(object sender, recog.SpeechRecognizedEventArgs e)
         {
             synth.SpeechSynthesizer synthesizer = new synth.SpeechSynthesizer();
+            output_data output = new output_data();
+            output.uid = "pradyumanvig@outlook.com";
             switch (e.Result.Text)
             {
                 case "Hi":
@@ -271,7 +308,9 @@ namespace Marko
                     break;
                 case "What should I wear tomorrow":
                     synthesizer.SpeakAsync("Whatever you want");
-
+                    output.query = e.Result.Text;
+                    output.reset = true;
+                    SendSpeechRequest(output);
                     break;
             }
         }
